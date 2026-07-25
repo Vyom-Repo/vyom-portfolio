@@ -441,6 +441,37 @@
 
   <div class="neural-connector" data-aos="fade-in"></div>
 
+  <!-- ═══════════════════════════════════════════════════
+       GITHUB ACTIVITY
+       ═══════════════════════════════════════════════════ -->
+  <section id="github-activity">
+    <div class="projects-layout">
+      <!-- Section label -->
+      <p class="section-label" data-aos="fade-up" data-aos-delay="100">
+        <i data-lucide="activity" class="section-label__icon"></i>
+        <span>GitHub Activity</span>
+      </p>
+
+      <div class="projects-header" data-aos="fade-up" data-aos-delay="150">
+        <h2 class="section-heading mb-0">
+          Consistent contributions.<br>
+          Continuous learning.<br>
+          <span class="text-gradient">Building every week.</span>
+        </h2>
+      </div>
+
+      <div class="github-graph-wrapper glass-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="github-scroll-container">
+          <div id="github-graph-container" class="github-grid">
+            <div class="github-loading">Fetching GitHub Activity...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
   <section id="projects">
     <div class="projects-layout">
 
@@ -1021,6 +1052,12 @@
       </button>
       <img id="certModalImg" src="" alt="Certificate" class="cert-modal__img" />
     </div>
+  </div>
+
+  <!-- GitHub Tooltip -->
+  <div id="github-tooltip" class="github-tooltip glass-card" aria-hidden="true">
+    <div class="tooltip-date" id="github-tooltip-date"></div>
+    <div class="tooltip-count" id="github-tooltip-count"></div>
   </div>
 </body>
 

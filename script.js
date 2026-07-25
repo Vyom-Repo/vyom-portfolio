@@ -570,4 +570,131 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ═══════════════════════════════════════════════════
+       GITHUB CONTRIBUTION ACTIVITY
+       ═══════════════════════════════════════════════════ */
+  const githubContainer = document.getElementById('github-graph-container');
+  const tooltip = document.getElementById('github-tooltip');
+  const tooltipDate = document.getElementById('github-tooltip-date');
+  const tooltipCount = document.getElementById('github-tooltip-count');
+  
+  // Username is configurable. The frontend no longer requires a GitHub token!
+  const GITHUB_USERNAME = 'Vyom-Repo';
+
+  async function fetchGitHubActivity() {
+    if (!githubContainer) return;
+
+    try {
+      // Securely fetch from our Vercel Serverless Function
+      const response = await fetch(`/api/github?username=${GITHUB_USERNAME}`);
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || `Failed to fetch activity (HTTP ${response.status})`);
+      }
+
+      // The serverless function returns minimized JSON: { totalContributions, weeks }
+      renderGitHubGrid(result.weeks);
+
+    } catch (error) {
+      githubContainer.innerHTML = `<div class="github-loading" style="color: var(--danger);">Failed to load activity: ${error.message}</div>`;
+      console.error('GitHub Fetch Error:', error);
+    }
+  }
+
+  function renderGitHubGrid(weeks) {
+    githubContainer.innerHTML = '';
+    let delay = 0;
+    
+    weeks.forEach((week, weekIndex) => {
+      // Pad the first week if it doesn't start on Sunday (0)
+      if (weekIndex === 0 && week.contributionDays.length > 0) {
+        const firstDay = week.contributionDays[0];
+        for (let i = 0; i < firstDay.weekday; i++) {
+          const emptyCell = document.createElement('div');
+          emptyCell.style.width = '12px';
+          emptyCell.style.height = '12px';
+          emptyCell.style.visibility = 'hidden';
+          githubContainer.appendChild(emptyCell);
+        }
+      }
+      
+      week.contributionDays.forEach(day => {
+        const cell = document.createElement('div');
+        cell.className = 'github-cell';
+        
+        let opacity = 0.05;
+        if (day.contributionCount > 0 && day.contributionCount <= 3) opacity = 0.3;
+        else if (day.contributionCount > 3 && day.contributionCount <= 6) opacity = 0.6;
+        else if (day.contributionCount > 6 && day.contributionCount <= 9) opacity = 0.8;
+        else if (day.contributionCount > 9) opacity = 1.0;
+        
+        if (day.contributionCount > 0) {
+          cell.style.background = `rgba(124, 58, 237, ${opacity})`;
+        }
+        
+        cell.style.opacity = '0';
+        cell.style.transform = 'scale(0)';
+        
+        cell.addEventListener('mouseenter', (e) => {
+          tooltipDate.textContent = new Date(day.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+          tooltipCount.textContent = `${day.contributionCount} Contribution${day.contributionCount !== 1 ? 's' : ''}`;
+          
+          // Using standard fixed positioning for the tooltip, translating from top-left
+          tooltip.style.left = '0px';
+          tooltip.style.top = '0px';
+          tooltip.classList.add('visible');
+          positionTooltip(e);
+        });
+        
+        cell.addEventListener('mousemove', (e) => {
+          positionTooltip(e);
+        });
+        
+        cell.addEventListener('mouseleave', () => {
+          tooltip.classList.remove('visible');
+        });
+        
+        githubContainer.appendChild(cell);
+        
+        setTimeout(() => {
+          cell.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.4s ease';
+          cell.style.opacity = '1';
+          cell.style.transform = 'scale(1)';
+        }, delay);
+        delay += 2; 
+      });
+    });
+    
+    const scrollContainer = document.querySelector('.github-scroll-container');
+    if (scrollContainer) {
+      setTimeout(() => {
+        scrollContainer.scrollLeft = scrollContainer.scrollWidth;
+      }, 100);
+    }
+  }
+
+  function positionTooltip(e) {
+    const x = e.clientX;
+    const y = e.clientY - 20;
+    
+    requestAnimationFrame(() => {
+      if(tooltip) {
+        tooltip.style.transform = `translate(calc(${x}px - 50%), calc(${y}px - 100%))`;
+      }
+    });
+  }
+
+  const activitySection = document.getElementById('github-activity');
+  if (activitySection) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        fetchGitHubActivity();
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+    
+    observer.observe(activitySection);
+  }
+
 });
