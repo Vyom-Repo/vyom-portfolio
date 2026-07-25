@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Vyom Prajapati's personal portfolio. I build thoughtful, functional web experiences and explore AI/ML solutions." />
+  <meta name="author" content="Vyom Prajapati" />
+  <title>Vyom Prajapati — Portfolio</title>
+
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:title" content="Vyom Prajapati — Portfolio" />
+  <meta property="og:description"
+    content="I build thoughtful, functional web experiences and explore how AI can make them smarter." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vyom-prajapati-portfolio.example.com/" />
+  <!-- ⬇️ EDIT: Replace with an actual screenshot of your site for social previews -->
+  <meta property="og:image" content="https://placehold.co/1200x630/101018/7c3aed?text=Vyom+Prajapati" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Fontshare: General Sans (heading font) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+
+  <!-- AOS — Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="custom-cursor-outline" id="cursorOutline" aria-hidden="true"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#home" class="navbar__logo">Vyom<span class="navbar__logo-dot">.</span></a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#home" class="navbar__link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="navbar__link" data-section="about">About</a></li>
+        <li><a href="#skills" class="navbar__link" data-section="skills">Skills</a></li>
+        <li><a href="#education" class="navbar__link" data-section="education">Education</a></li>
+        <li><a href="#experience" class="navbar__link" data-section="experience">Experience</a></li>
+        <li><a href="#projects" class="navbar__link" data-section="projects">Projects</a></li>
+        <li><a href="#certificates" class="navbar__link" data-section="certificates">Certificates</a></li>
+        <li><a href="#contact" class="navbar__link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile full-screen menu overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="#home" class="mobile-menu__link active" data-section="home">Home</a></li>
+      <li><a href="#about" class="mobile-menu__link" data-section="about">About</a></li>
+      <li><a href="#skills" class="mobile-menu__link" data-section="skills">Skills</a></li>
+      <li><a href="#education" class="mobile-menu__link" data-section="education">Education</a></li>
+      <li><a href="#experience" class="mobile-menu__link" data-section="experience">Experience</a></li>
+      <li><a href="#projects" class="mobile-menu__link" data-section="projects">Projects</a></li>
+      <li><a href="#certificates" class="mobile-menu__link" data-section="certificates">Certificates</a></li>
+      <li><a href="#contact" class="mobile-menu__link" data-section="contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       FIXED BACKGROUND — Canvas Particles & Bursts
+       ═══════════════════════════════════════════════════ -->
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE CONTENT
+       ═══════════════════════════════════════════════════ -->
+
+  <section id="home">
+    <div class="hero-premium" data-aos="fade-up" data-aos-duration="1000">
+
+      <!-- Availability Badge -->
+      <div class="hero-badge" data-aos="fade-down" data-aos-delay="50">
+        <span class="hero-badge__pulse"></span>
+        <span class="hero-badge__text">Available for new opportunities</span>
+      </div>
+
+      <!-- Floating Profile Artifact -->
+      <div class="hero-profile glass-card" data-aos="zoom-in" data-aos-delay="150">
+        <div class="hero-profile__image-wrap">
+          <!-- ⬇️ SWAP: Replace src with your real photo path -->
+          <img src="vyom.png" alt="Vyom Prajapati" class="hero-profile__img" />
+        </div>
+        <div class="hero-profile__details">
+          <h2 class="hero-profile__title-primary">IT Student</h2>
+          <p class="hero-profile__name">Vyom Prajapati <span class="hero-profile__separator">•</span> LD '28</p>
+        </div>
+      </div>
+
+      <!-- Massive Landing Page Typography -->
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="250">
+        <span class="hero-title__static">Designing the future of </span>
+        <br class="hero-title__break" />
+        <span id="typed-target" class="hero-title__typed"></span>
+      </h1>
+
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="350">
+        I build thoughtful, functional web experiences and explore how artificial intelligence can make them smarter and
+        more intuitive.
+      </p>
+
+      <!-- Action Area -->
+      <div class="hero-ctas" data-aos="fade-up" data-aos-delay="450">
+        <a href="#contact" class="btn-primary">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-right" class="btn-primary__icon"></i>
+        </a>
+        <a href="Resume.pdf" class="btn-glass" download>
+          <i data-lucide="download" class="btn-glass__icon"></i>
+          <span>Download CV</span>
+        </a>
+      </div>
+
+      <!-- Minimalist Socials -->
+      <div class="hero-socials" data-aos="fade-up" data-aos-delay="550">
+        <a href="https://github.com/placeholder" target="_blank" class="hero-socials__link" aria-label="GitHub">
+          <i data-lucide="github"></i>
+        </a>
+        <a href="https://linkedin.com/in/placeholder" target="_blank" class="hero-socials__link" aria-label="LinkedIn">
+          <i data-lucide="linkedin"></i>
+        </a>
+        <a href="mailto:vyom@example.com" class="hero-socials__link" aria-label="Email">
+          <i data-lucide="mail"></i>
+        </a>
+      </div>
+
+      <!-- Scroll-down indicator -->
+      <div class="hero-scroll-indicator" data-aos="fade-up" data-aos-delay="700">
+        <a href="#about" class="hero-scroll-indicator__link">
+          <i data-lucide="chevron-down" class="hero-scroll-indicator__icon"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="about" class="section-left">
+    <!-- Section label -->
+    <p class="section-label section-label-left" data-aos="fade-right">
+      <i data-lucide="user" class="section-label__icon"></i>
+      <span>About Me</span>
+    </p>
+
+    <h2 class="section-heading heading-asym" data-aos="fade-right" data-aos-delay="100">
+      Get to know me
+    </h2>
+
+    <div class="about-layout">
+      <!-- Left Column: Glass Card Text -->
+      <div class="about-content glass-card" data-aos="fade-right" data-aos-duration="600" data-aos-delay="200">
+
+        <!-- ⬇️ EDIT: Personalize this paragraph with your own wording -->
+        <p class="about-text">
+          I'm a final-year engineering student at Gujarat Technological University with a deep
+          curiosity for how things work on the web — and increasingly, how artificial intelligence
+          can make those experiences smarter. Over the past few years I've gone from writing my
+          first lines of HTML to building full-stack applications, training ML models, and
+          exploring the intersection of data science and product design.
+        </p>
+        <p class="about-text">
+          I believe the best way to learn is by building. Every project I take on — whether it's
+          a portfolio site, a predictive model, or an API integration — is a chance to deepen my
+          understanding and push my skills further. I value clean code, thoughtful UI, and
+          solutions that genuinely help people.
+        </p>
+      </div>
+
+      <!-- Right Column: Floating Stats -->
+      <div class="about-stats" data-aos="fade-left" data-aos-duration="600" data-aos-delay="200">
+        <div class="highlight-pill glass-card">
+          <span class="highlight-pill__value">2+</span>
+          <span class="highlight-pill__label">Internships</span>
+        </div>
+        <div class="highlight-pill glass-card">
+          <span class="highlight-pill__value">7+</span>
+          <span class="highlight-pill__label">Projects</span>
+        </div>
+        <div class="highlight-pill glass-card">
+          <span class="highlight-pill__value">GTU</span>
+          <span class="highlight-pill__label">Engineering Student</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="skills" class="section-breakout">
+    <div class="skills-layout">
+
+      <!-- Section label -->
+      <p class="section-label section-label-left" data-aos="fade-up" data-aos-delay="100">
+        <i data-lucide="sparkles" class="section-label__icon"></i>
+        <span>Skills</span>
+      </p>
+
+      <h2 class="section-heading heading-asym" data-aos="fade-up" data-aos-delay="150">
+        Skills &amp; Expertise
+      </h2>
+
+      <div class="skills-clean-grid">
+        <div class="skill-clean-group" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="skill-clean-title">Programming Languages</h3>
+          <div class="skill-tag-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C</span>
+          </div>
+        </div>
+
+        <div class="skill-clean-group" data-aos="fade-up" data-aos-delay="150">
+          <h3 class="skill-clean-title">Web Development</h3>
+          <div class="skill-tag-list">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">Laravel</span>
+          </div>
+        </div>
+
+        <div class="skill-clean-group" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="skill-clean-title">Databases</h3>
+          <div class="skill-tag-list">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="skill-clean-group" data-aos="fade-up" data-aos-delay="250">
+          <h3 class="skill-clean-title">Tools &amp; Technologies</h3>
+          <div class="skill-tag-list">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Linux CLI</span>
+          </div>
+        </div>
+
+        <div class="skill-clean-group" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="skill-clean-title">Productivity &amp; BI</h3>
+          <div class="skill-tag-list">
+            <span class="skill-tag">MS Excel</span>
+            <span class="skill-tag">Word</span>
+            <span class="skill-tag">PPT</span>
+            <span class="skill-tag">Power BI</span>
+          </div>
+        </div>
+
+        <div class="skill-clean-group" data-aos="fade-up" data-aos-delay="350">
+          <h3 class="skill-clean-title">Soft Skills</h3>
+          <div class="skill-tag-list">
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Leadership</span>
+            <span class="skill-tag">Team Work</span>
+            <span class="skill-tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="education">
+    <div class="education-layout">
+
+      <!-- Section label -->
+      <p class="section-label" data-aos="fade-up" data-aos-delay="100">
+        <i data-lucide="graduation-cap" class="section-label__icon"></i>
+        <span>Education</span>
+      </p>
+
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="150">
+        Academic Journey
+      </h2>
+
+      <div class="education-compact-timeline">
+        <!-- Milestone 1: BE -->
+        <div class="edu-compact-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="edu-compact-marker"></div>
+          <div class="edu-compact-content glass-card">
+            <div class="edu-compact-header">
+              <h3 class="edu-compact-title">Bachelor of Engineering</h3>
+              <span class="edu-compact-status active">Pursuing</span>
+            </div>
+            <p class="edu-compact-meta">GTU, L.D. Ahmedabad | 2025 &ndash; Present</p>
+          </div>
+        </div>
+
+        <!-- Milestone 2: Diploma -->
+        <div class="edu-compact-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="edu-compact-marker"></div>
+          <div class="edu-compact-content glass-card">
+            <div class="edu-compact-header">
+              <h3 class="edu-compact-title">Diploma in Engineering</h3>
+              <span class="edu-compact-status">Completed</span>
+            </div>
+            <p class="edu-compact-meta">GTU, G.P. Ahmedabad | 2022 &ndash; 2025 | SPI: 9.33</p>
+          </div>
+        </div>
+
+        <!-- Milestone 3: SSC -->
+        <div class="edu-compact-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="edu-compact-marker"></div>
+          <div class="edu-compact-content glass-card">
+            <div class="edu-compact-header">
+              <h3 class="edu-compact-title">SSC (10th Standard)</h3>
+              <span class="edu-compact-status">Completed</span>
+            </div>
+            <p class="edu-compact-meta">GSEB, St. Xavier's High School | 2021 &ndash; 2022 | Score: 84%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="experience" class="section-right">
+    <div class="experience-layout">
+
+
+
+      <!-- Section label -->
+      <p class="section-label section-label-right" data-aos="fade-up" data-aos-delay="100">
+        <span>Experience</span>
+        <i data-lucide="briefcase" class="section-label__icon"></i>
+      </p>
+
+      <h2 class="section-heading heading-asym-right" data-aos="fade-up" data-aos-delay="150">
+        Experience &amp; Internships
+      </h2>
+
+      <div class="experience-list">
+
+        <!-- Card 1 -->
+        <div class="exp-item glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="exp-item__header">
+            <div>
+              <h3 class="exp-item__role">Python with Django Intern</h3>
+              <p class="exp-item__company"><i data-lucide="building-2"></i> Su-Kem Tech Lab</p>
+            </div>
+            <div class="exp-item__duration">
+              <i data-lucide="calendar"></i> 15 Days (Aug 2023)
+            </div>
+          </div>
+          <ul class="exp-item__bullets">
+            <li>Developed and enhanced web applications using the Django framework</li>
+            <li>Built a full-stack E-commerce application with frontend and backend integration</li>
+            <li>Implemented basic CRUD operations and user authentication features</li>
+          </ul>
+          <!-- ⬇️ SWAP: Replace data-cert-src with your real certificate image path -->
+          <button class="btn-glass btn-glass--small exp-item__cert-btn"
+            data-cert-src="https://placehold.co/800x600/101018/7c3aed?text=Su-Kem+Certificate">
+            <i data-lucide="award"></i> View Certificate
+          </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="exp-item glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="exp-item__header">
+            <div>
+              <h3 class="exp-item__role">Data Science &amp; Machine Learning Intern</h3>
+              <p class="exp-item__company"><i data-lucide="building-2"></i> 360 Design</p>
+            </div>
+            <div class="exp-item__duration">
+              <i data-lucide="calendar"></i> 45 Days (June 2024)
+            </div>
+          </div>
+          <ul class="exp-item__bullets">
+            <li>Worked on data preprocessing, model building, and evaluation using Python</li>
+            <li>Applied machine learning algorithms for predictive analysis</li>
+            <li>Gained hands-on experience with libraries like NumPy, Pandas, and Scikit-learn</li>
+          </ul>
+          <!-- ⬇️ SWAP: Replace data-cert-src with your real certificate image path -->
+          <button class="btn-glass btn-glass--small exp-item__cert-btn"
+            data-cert-src="https://placehold.co/800x600/101018/3b82f6?text=360+Design+Certificate">
+            <i data-lucide="award"></i> View Certificate
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="projects">
+    <div class="projects-layout">
+
+      <!-- Section label -->
+      <p class="section-label" data-aos="fade-up" data-aos-delay="100">
+        <i data-lucide="folder-code" class="section-label__icon"></i>
+        <span>Projects</span>
+      </p>
+
+      <div class="projects-header" data-aos="fade-up" data-aos-delay="150">
+        <h2 class="section-heading mb-0">Selected Works</h2>
+      </div>
+
+      <div class="projects-showcase" data-aos="fade-up" data-aos-delay="250">
+
+        <!-- Project 1 -->
+        <div class="showcase-card glass-card" data-aos="fade-up">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Enterprise Software</span>
+              <span class="showcase-date">2024</span>
+            </div>
+            <div class="showcase-status showcase-status--live">
+              <span class="status-dot"></span> Shipped
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">Dynamic Task and Workflow Manager</h3>
+            <p class="showcase-desc">A robust portal to manage organizational tasks and custom workflows, improving team
+              collaboration and tracking efficiency.</p>
+
+            <div class="showcase-details">
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Problem Solved</h4>
+                <p class="showcase-detail-text">Eliminated fragmented communication and lost tasks across disparate
+                  legacy systems by unifying workflows into a single source of truth.</p>
+              </div>
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Key Features</h4>
+                <ul class="showcase-features">
+                  <li>Visual custom workflow builder</li>
+                  <li>Real-time task synchronization</li>
+                  <li>Granular role-based access control</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-card__footer">
+            <div class="project-card__tags">
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">MongoDB</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="external-link"></i> Live Demo</a>
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="showcase-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Full-Stack Web</span>
+              <span class="showcase-date">2023</span>
+            </div>
+            <div class="showcase-status showcase-status--live">
+              <span class="status-dot"></span> Shipped
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">E-Commerce Architecture</h3>
+            <p class="showcase-desc">A highly scalable online shopping platform featuring dynamic product catalogs and
+              secure checkout flows.</p>
+
+            <div class="showcase-details">
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Problem Solved</h4>
+                <p class="showcase-detail-text">Provided local businesses with a low-latency, reliable digital
+                  storefront to compete online.</p>
+              </div>
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Key Features</h4>
+                <ul class="showcase-features">
+                  <li>Inventory management system</li>
+                  <li>Secure cart &amp; checkout logic</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-card__footer">
+            <div class="project-card__tags">
+              <span class="tech-pill">Django</span>
+              <span class="tech-pill">JS</span>
+              <span class="tech-pill">MySQL</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="external-link"></i> Live</a>
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="showcase-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Machine Learning</span>
+              <span class="showcase-date">2023</span>
+            </div>
+            <div class="showcase-status showcase-status--beta">
+              <span class="status-dot"></span> Beta
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">Heart Disease Prediction System</h3>
+            <p class="showcase-desc">A predictive ML model that analyzes complex patient medical data to forecast heart
+              disease likelihood.</p>
+
+            <div class="showcase-details">
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Problem Solved</h4>
+                <p class="showcase-detail-text">Reduced diagnostic latency by providing doctors with an immediate,
+                  high-accuracy statistical baseline.</p>
+              </div>
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Key Features</h4>
+                <ul class="showcase-features">
+                  <li>High-accuracy predictive model</li>
+                  <li>Automated feature scaling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-card__footer">
+            <div class="project-card__tags">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Scikit-learn</span>
+              <span class="tech-pill">Pandas</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="external-link"></i> Live</a>
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="showcase-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Natural Language Processing</span>
+              <span class="showcase-date">2023</span>
+            </div>
+            <div class="showcase-status showcase-status--live">
+              <span class="status-dot"></span> Shipped
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">Emotion Filtering Engine</h3>
+            <p class="showcase-desc">An intelligent system that processes textual content and categorizes it based on
+              underlying emotional sentiment.</p>
+
+            <div class="showcase-details">
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Problem Solved</h4>
+                <p class="showcase-detail-text">Automated the triage of user feedback by sentiment, allowing support
+                  teams to prioritize distressed users.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-card__footer">
+            <div class="project-card__tags">
+              <span class="tech-pill">NLP</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">NLTK</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="showcase-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Backend Infrastructure</span>
+              <span class="showcase-date">2022</span>
+            </div>
+            <div class="showcase-status showcase-status--live">
+              <span class="status-dot"></span> Shipped
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">Advanced Billing System</h3>
+            <p class="showcase-desc">A comprehensive billing solution engineered to automate invoicing, track payments,
+              and generate financial reports.</p>
+
+            <div class="showcase-details">
+              <div class="showcase-detail-block">
+                <h4 class="showcase-detail-title">Problem Solved</h4>
+                <p class="showcase-detail-text">Replaced error-prone manual spreadsheet billing with an automated,
+                  auditable financial pipeline.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-card__footer">
+            <div class="project-card__tags">
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">Spring Boot</span>
+              <span class="tech-pill">PostgreSQL</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="showcase-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Desktop App</span>
+              <span class="showcase-date">2022</span>
+            </div>
+            <div class="showcase-status showcase-status--archived">
+              <span class="status-dot"></span> Archived
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">Feedback System</h3>
+            <p class="showcase-desc">A dedicated Java application for collecting, storing, and analyzing user feedback
+              effectively.</p>
+          </div>
+
+          <div class="showcase-card__footer" style="margin-top: auto;">
+            <div class="project-card__tags">
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">Swing</span>
+              <span class="tech-pill">SQL</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="showcase-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="showcase-card__header">
+            <div class="showcase-card__meta">
+              <span class="showcase-tag">Database Management</span>
+              <span class="showcase-date">2021</span>
+            </div>
+            <div class="showcase-status showcase-status--archived">
+              <span class="status-dot"></span> Archived
+            </div>
+          </div>
+
+          <div class="showcase-card__body">
+            <h3 class="showcase-title">Hospital Management System</h3>
+            <p class="showcase-desc">A database-centric system for managing patient records, appointments, and hospital
+              administration tasks securely.</p>
+          </div>
+
+          <div class="showcase-card__footer" style="margin-top: auto;">
+            <div class="project-card__tags">
+              <span class="tech-pill">MySQL</span>
+              <span class="tech-pill">PHP</span>
+            </div>
+            <div class="project-card__actions">
+              <a href="#" class="btn-glass btn-glass--small"><i data-lucide="github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="certificates">
+    <div class="certs-layout">
+
+      <!-- Section label -->
+      <p class="section-label" data-aos="fade-up" data-aos-delay="100">
+        <i data-lucide="award" class="section-label__icon"></i>
+        <span>Certifications</span>
+      </p>
+
+      <div class="projects-header" data-aos="fade-up" data-aos-delay="150">
+        <h2 class="section-heading mb-0">Certificates &amp; Workshops</h2>
+        <div class="projects-nav">
+          <button id="certScrollLeft" class="projects-nav__btn" aria-label="Scroll Left">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <button id="certScrollRight" class="projects-nav__btn" aria-label="Scroll Right">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="certs-carousel" id="certsCarousel" data-aos="fade-up" data-aos-delay="250">
+
+        <!-- Cert 1 -->
+        <div class="cert-card glass-card">
+          <div class="cert-card__content">
+            <h3 class="cert-card__title">Python Libraries for ML</h3>
+            <p class="cert-card__desc">Exploration of Pandas, NumPy, and Scikit-learn for building predictive models.
+            </p>
+            <span class="cert-card__issuer"><i data-lucide="building-2"></i> Govt. Polytechnic Ahmedabad (2024)</span>
+          </div>
+          <!-- Change data-has-cert to "false" to hide the button -->
+          <div class="cert-card__actions" data-has-cert="true">
+            <button class="btn-glass btn-glass--small exp-item__cert-btn"
+              data-cert-src="https://placehold.co/800x600/101018/7c3aed?text=Python+ML+Certificate">
+              <i data-lucide="image"></i> View Certificate
+            </button>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card glass-card">
+          <div class="cert-card__content">
+            <h3 class="cert-card__title">Power BI Workshop</h3>
+            <p class="cert-card__desc">Hands-on training in data visualization, dashboard creation, and data modeling.
+            </p>
+            <span class="cert-card__issuer"><i data-lucide="building-2"></i> OfficeMaster (2025)</span>
+          </div>
+          <div class="cert-card__actions" data-has-cert="true">
+            <button class="btn-glass btn-glass--small exp-item__cert-btn"
+              data-cert-src="https://placehold.co/800x600/101018/3b82f6?text=Power+BI+Certificate">
+              <i data-lucide="image"></i> View Certificate
+            </button>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card glass-card">
+          <div class="cert-card__content">
+            <h3 class="cert-card__title">Web3 Basics</h3>
+            <p class="cert-card__desc">Introduction to decentralized web architecture, blockchain concepts, and crypto
+              wallets.</p>
+            <span class="cert-card__issuer"><i data-lucide="building-2"></i> XCAN (2025)</span>
+          </div>
+          <div class="cert-card__actions" data-has-cert="true">
+            <button class="btn-glass btn-glass--small exp-item__cert-btn"
+              data-cert-src="https://placehold.co/800x600/101018/14b8a6?text=Web3+Certificate">
+              <i data-lucide="image"></i> View Certificate
+            </button>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card glass-card">
+          <div class="cert-card__content">
+            <h3 class="cert-card__title">Arbitrum Orbit &amp; Stylus</h3>
+            <p class="cert-card__desc">Deep dive into Ethereum Layer 2 scaling solutions and writing smart contracts.
+            </p>
+            <span class="cert-card__issuer"><i data-lucide="building-2"></i> XCAN (2025)</span>
+          </div>
+          <div class="cert-card__actions" data-has-cert="true">
+            <button class="btn-glass btn-glass--small exp-item__cert-btn"
+              data-cert-src="https://placehold.co/800x600/101018/7c3aed?text=Arbitrum+Certificate">
+              <i data-lucide="image"></i> View Certificate
+            </button>
+          </div>
+        </div>
+
+        <!-- Cert 5 -->
+        <div class="cert-card glass-card">
+          <div class="cert-card__content">
+            <h3 class="cert-card__title">Blockchain &amp; Smart Contract Fundamentals</h3>
+            <p class="cert-card__desc">Comprehensive overview of distributed ledgers and hands-on smart contract
+              deployment.</p>
+            <span class="cert-card__issuer"><i data-lucide="building-2"></i> Hands-on Exposure</span>
+          </div>
+          <div class="cert-card__actions" data-has-cert="true">
+            <button class="btn-glass btn-glass--small exp-item__cert-btn"
+              data-cert-src="https://placehold.co/800x600/101018/3b82f6?text=Blockchain+Certificate">
+              <i data-lucide="image"></i> View Certificate
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="neural-connector" data-aos="fade-in"></div>
+
+  <section id="contact" class="contact-section">
+    <div class="contact-container minimal-contact" data-aos="fade-up" data-aos-duration="800">
+
+      <h2 class="contact-heading-massive">Let's build the future together.</h2>
+      <p class="contact-subheading-minimal">Open to internships, freelance collaborations, and interesting problems to
+        solve.</p>
+
+      <div class="contact-links">
+        <a href="https://github.com/placeholder" target="_blank" class="contact-btn glass-card" aria-label="GitHub">
+          <i data-lucide="github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/placeholder" target="_blank" class="contact-btn glass-card"
+          aria-label="LinkedIn">
+          <i data-lucide="linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:vyom@example.com" class="contact-btn glass-card" aria-label="Email">
+          <i data-lucide="mail"></i>
+          <span>Email</span>
+        </a>
+      </div>
+
+      <hr class="contact-divider" />
+
+      <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Vyom Prajapati. All rights reserved.</p>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SCRIPTS
+       ═══════════════════════════════════════════════════ -->
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+
+  <!-- Typed.js (typewriter effect) -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Main script -->
+  <script src="script.js"></script>
+
+  <!-- Certificate Modal -->
+  <div id="certModal" class="cert-modal" aria-hidden="true">
+    <div class="cert-modal__backdrop" id="certModalBackdrop"></div>
+    <div class="cert-modal__content glass-card">
+      <button id="certModalClose" class="cert-modal__close" aria-label="Close Modal">
+        <i data-lucide="x"></i>
+      </button>
+      <img id="certModalImg" src="" alt="Certificate" class="cert-modal__img" />
+    </div>
+  </div>
+</body>
+
+</html>

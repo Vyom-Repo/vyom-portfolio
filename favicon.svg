@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <!-- Gradient for the V letterform -->
+    <linearGradient id="vGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#22D3EE"/>
+      <stop offset="45%"  stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <!-- Soft outer glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- V letterform: two angled strokes meeting at the bottom -->
+  <g filter="url(#glow)">
+    <path
+      d="M 14 14  L 32 50  L 50 14"
+      stroke="url(#vGrad)"
+      stroke-width="6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+  </g>
+
+  <!-- Subtle accent dot at the bottom tip -->
+  <circle cx="32" cy="50" r="3" fill="#22D3EE" opacity="0.9"/>
+</svg>
